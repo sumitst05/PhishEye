@@ -2,7 +2,10 @@
   "manifest_version": 3,
   "name": "PhishEye",
   "version": "1.0",
-	"permissions": ["activeTab", "scripting", "storage", "notifications"],
+  "permissions": ["activeTab", "scripting", "storage", "notifications"],
+  "icons": {
+    "96": "logo.jpg"
+  },
   "background": {
     "scripts": ["background.js"]
   },
@@ -14,5 +17,11 @@
   ],
   "action": {
     "default_popup": "popup.html"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "phisheye@example.com"
+    }
   }
 }
