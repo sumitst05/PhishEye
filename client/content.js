@@ -32,12 +32,6 @@ document.addEventListener("click", function(event) {
 		chrome.runtime.sendMessage({ action: "sendPrediction", data: urlFeatures }, function(response) {
 			if (response.success) {
 				console.log("URL Prediction response:", response.data);
-
-				if (response.data.Prediction === 1) {
-					changePageColor("red");  // Phishing URL
-				} else if (response.data.Prediction === 0) {
-					changePageColor("green");  // Safe URL
-				}
 			} else {
 				console.error("Error:", response.error);
 			}
@@ -56,12 +50,6 @@ const observer = new MutationObserver((mutations) => {
 			}, function(response) {
 				if (response.success) {
 					console.log("Email Prediction response:", response.data);
-
-					if (response.data.Prediction === "Phishing Email") {
-						changePageColor("red");  // Phishing Email
-					} else if (response.data.Prediction === "Safe Email") {
-						changePageColor("green");  // Safe Email
-					}
 				} else {
 					console.error("Error:", response.error);
 				}
